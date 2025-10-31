@@ -1,0 +1,408 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to premium WeGift3D color palette from design brief */
+  /* Primary Palette - Core Brand Identity */
+  --royal-blue: #4263eb;
+  --holographic-violet: #9d6bff;
+  --warm-pink: #ff6bb5;
+
+  /* Secondary Palette - Balance & Depth */
+  --pearl-white: #f9fafb;
+  --soft-silver: #e5e7eb;
+  --graphite-charcoal: #1f2937;
+
+  /* Accent Hues */
+  --aqua-teal: #5debd7;
+  --gold-light: #ffd166;
+  --gold-dark: #f6ae2d;
+
+  /* Light Mode */
+  --background: #fafbfc;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #4263eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #1f2937;
+  --muted: #d1d5db;
+  --muted-foreground: #6b7280;
+  --accent: #ff6bb5;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #f9fafb;
+  --ring: #4263eb;
+  --chart-1: #4263eb;
+  --chart-2: #9d6bff;
+  --chart-3: #ff6bb5;
+  --chart-4: #5debd7;
+  --chart-5: #ffd166;
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  /* Dark mode with deep navy/graphite base instead of pure black */
+  --background: #0f1419;
+  --foreground: #f3f4f6;
+  --card: #1a1f2e;
+  --card-foreground: #f3f4f6;
+  --popover: #1a1f2e;
+  --popover-foreground: #f3f4f6;
+  --primary: #6b7fff;
+  --primary-foreground: #0f1419;
+  --secondary: #252d3d;
+  --secondary-foreground: #f3f4f6;
+  --muted: #4b5563;
+  --muted-foreground: #9ca3af;
+  --accent: #ff8fd1;
+  --accent-foreground: #0f1419;
+  --destructive: #f87171;
+  --destructive-foreground: #0f1419;
+  --border: #2d3748;
+  --input: #1a1f2e;
+  --ring: #6b7fff;
+  --chart-1: #6b7fff;
+  --chart-2: #b89fff;
+  --chart-3: #ff8fd1;
+  --chart-4: #7ffff0;
+  --chart-5: #ffe066;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  /* Add custom colors to Tailwind theme */
+  --color-warm-pink: #ff6bb5;
+  --color-aqua-teal: #5debd7;
+  --color-gold-light: #ffd166;
+  --color-gold-dark: #f6ae2d;
+  --color-holographic-violet: #9d6bff;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Premium typography hierarchy with proper spacing and letter spacing */
+  h1 {
+    @apply text-6xl md:text-7xl font-bold tracking-tight leading-tight text-balance;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight leading-snug text-balance;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+  }
+
+  small {
+    @apply text-sm leading-relaxed text-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Premium button styles with gradient and glow effects */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 active:scale-95 uppercase tracking-wide text-sm;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-secondary-foreground font-semibold rounded-lg border border-border transition-all duration-300 hover:bg-muted hover:shadow-md uppercase tracking-wide text-sm;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-primary/5 dark:hover:bg-primary/10 uppercase tracking-wide text-sm;
+  }
+
+  /* Premium card styles with glassmorphism and soft shadows */
+  .card-premium {
+    @apply bg-card/80 dark:bg-card/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300;
+  }
+
+  .card-glass {
+    @apply bg-white/40 dark:bg-black/30 backdrop-blur-2xl rounded-2xl border border-white/30 dark:border-white/10 shadow-lg;
+  }
+
+  /* Smooth entrance animations - short and professional */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .fade-in-down {
+    animation: fadeInDown 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Stagger animation delays for sequential animations */
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+
+  /* Premium glassmorphism with soft ambient glow */
+  .glass-effect {
+    @apply bg-white/50 dark:bg-black/40 backdrop-blur-2xl;
+  }
+
+  .glass-effect-subtle {
+    @apply bg-white/30 dark:bg-black/20 backdrop-blur-xl;
+  }
+
+  /* Use existing color tokens instead of custom utility classes */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-accent bg-clip-text text-transparent;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/40 dark:hover:shadow-primary/20;
+  }
+
+  .hover-glow-accent {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent/40 dark:hover:shadow-accent/20;
+  }
+
+  .card-3d-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+    perspective: 1000px;
+  }
+
+  .card-3d-hover:hover {
+    transform: rotateY(2deg) rotateX(-2deg) scale(1.05);
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floating-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .shadow-3d {
+    @apply shadow-2xl shadow-primary/20 dark:shadow-primary/10;
+  }
+
+  .shadow-3d-accent {
+    @apply shadow-2xl shadow-accent/20 dark:shadow-accent/10;
+  }
+
+  .input-premium {
+    @apply bg-white/50 dark:bg-black/30 border border-white/30 dark:border-white/10 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(66, 99, 235, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(66, 99, 235, 0);
+    }
+  }
+
+  .particle-bg {
+    @apply relative overflow-hidden;
+  }
+
+  .particle {
+    @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-20;
+  }
+}

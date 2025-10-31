@@ -1,0 +1,58 @@
+import type { Product } from "./types"
+
+export const products: Product[] = [
+  {
+    id: 1,
+    name: "Custom Photo Lamp",
+    price: 89,
+    image: "💡",
+    category: "Lamps & Lights",
+    rating: 4.9,
+    description: "Personalized 3D-printed lamp with your favorite photo",
+  },
+  {
+    id: 2,
+    name: "Personalized Keychain",
+    price: 29,
+    image: "🔑",
+    category: "Keychains & Tags",
+    rating: 4.8,
+    description: "Custom engraved keychain with your name or message",
+  },
+  {
+    id: 3,
+    name: "Smart NFC Gift Tag",
+    price: 49,
+    image: "📱",
+    category: "NFC Smart Gifting",
+    rating: 4.7,
+    description: "Interactive NFC tag that links to your custom message",
+  },
+  {
+    id: 4,
+    name: "3D Printed Photo Frame",
+    price: 59,
+    image: "🖼️",
+    category: "Frames & Posters",
+    rating: 4.9,
+    description: "Elegant frame with your custom 3D-printed design",
+  },
+  {
+    id: 5,
+    name: "Custom Badge Set",
+    price: 39,
+    image: "🏆",
+    category: "Badges & Souvenirs",
+    rating: 4.6,
+    description: "Set of personalized badges with your designs",
+  },
+  {
+    id: 6,
+    name: "Premium Gift Box",
+    price: 99,
+    image: "🎁",
+    category: "3D Printed Gifts",
+    rating: 4.8,
+    description: "Luxury 3D-printed gift box with custom compartments",
+  },
+]
